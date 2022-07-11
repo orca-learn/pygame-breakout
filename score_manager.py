@@ -7,7 +7,7 @@ class ScoreManager:
         self.lives = starting_lives
 
     def add_points(self, points=1):
-        self.score += points
+        self.score = points
 
     def lose_life(self):
         self.lives -= 1

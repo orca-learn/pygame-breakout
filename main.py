@@ -14,7 +14,7 @@ WINDOW_HEIGHT = 600
 FPS = 60
 BG_COLOR = Colors.BLACK
 # Scoring ----------------------------------------------------------------------
-STARTING_LIVES = 5
+STARTING_LIVES = 1
 # Paddle -----------------------------------------------------------------------
 PADDLE_WIDTH = 100
 PADDLE_HEIGHT = 20
@@ -27,8 +27,8 @@ BALL_STARTING_DIRECTION = 200
 BALL_SPEED = 7
 BALL_COLOR = Colors.WHITE
 # Bricks -----------------------------------------------------------------------
-BRICK_ROWS = 5
-BRICKS_PER_ROW = 8
+BRICK_ROWS = 1
+BRICKS_PER_ROW = 1
 BRICK_PADDING_X = 2
 BRICK_PADDING_TOP = 5
 BRICK_WIDTH = (WINDOW_WIDTH / BRICKS_PER_ROW) - 2 * BRICK_PADDING_X
@@ -151,7 +151,7 @@ while running:
     if ball is None and mouse_buttons[0]:
         spawn_ball()
     # Paddle controls (mouse position)
-    paddle.set_center_x(pygame.mouse.get_pos()[0])
+    # paddle.set_center_x(pygame.mouse.get_pos()[0])
     # Game Logic ---------------------------------------------------------------
     if ball is not None:
         # Update ball position, determine if ball hit bottom
@@ -167,7 +167,7 @@ while running:
             if i < 1:
                 ball.handle_brick_collision(brick.rect)
             score_manager.add_points()
-            brick.kill()
+            """ brick.kill() """
         if len(bricks) == 0:
             finish_level('STAGE CLEAR')
         if lose_life:
